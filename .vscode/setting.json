@@ -1,0 +1,12 @@
+{
+  "scss.lint.emptyRules": "ignore",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "vue.codeActions.enabled": false,
+  "vue.complete.casing.props": "autoCamel",
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

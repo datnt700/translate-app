@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Api",
+      "request": "launch",
+      "runtimeArgs": ["pnpm", "dev"],
+      "cwd": "${workspaceFolder}/apps/api/",
+      "runtimeExecutable": "pnpm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
+      "name": "Debug Service",
+      "request": "launch",
+      "runtimeArgs": ["pnpm", "debug:service"],
+      "cwd": "${workspaceFolder}/apps/api/",
+      "runtimeExecutable": "pnpm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    }
+  ]
+}
