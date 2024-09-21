@@ -1,0 +1,38 @@
+@use '../../lib/common/breakpoint' as bp;
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.img{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .background-image{
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+  }
+  .logo{
+    margin-top: 5.75rem;
+  }
+}
+
+.content{
+  padding: 4rem 1.65rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  @media  screen and (min-width: bp.$bp-lg){
+    padding: 4rem 3rem 3rem;
+  }
+  @media  screen and (min-width: bp.$bp-xl){
+    flex-direction: row;
+  }
+}
+
