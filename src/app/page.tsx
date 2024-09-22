@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 
 import styles from './home.module.scss';
@@ -21,6 +21,11 @@ export default function Home() {
   );
 
   const [text, setText] = useState('Hello, how are you');
+  const [textResult, setTextResult] = useState('Bonjour, comment allez-vous');
+
+  useEffect(() => {
+    console.log(textResult);
+  }, [textResult]);
   const [language, setLanguage] = useState(
     languageOption.map((item) =>
       item.id === 'en' ? { ...item, active: true } : { ...item, active: false }
@@ -31,7 +36,6 @@ export default function Home() {
       item.id === 'fr' ? { ...item, active: true } : { ...item, active: false }
     )
   );
-  const [textResult, setTextResult] = useState('Bonjour, comment allez-vous');
   const handleSwap = () => {
     setLanguage(secondLanguage);
     setSecondLanguage(language);
@@ -45,11 +49,15 @@ export default function Home() {
 
     const payload = { languages, text };
     try {
-      const response = await axios.post('/api/handletranslate', payload);
-      const newText = response.data.responseData.translatedText.replace(
-        /"/g,
-        ''
-      );
+      const response = await fetch('/api/handletranslate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+      const data = await response.json();
+      const newText = data.responseData.translatedText.replace(/"/g, '');
       setTextResult(newText);
     } catch (error) {
       console.error('Error:', error);

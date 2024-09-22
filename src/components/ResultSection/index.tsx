@@ -123,7 +123,7 @@ export const ResultSection = ({
       </div>
       <div className={styles.line}></div>
       <div className={styles['input-text']}>
-        <textarea className={styles.area} defaultValue={textResult}></textarea>
+        <p className={styles.area}>{textResult}</p>
       </div>
       <div className={styles.features}>
         <FeatureSection handleSound={handleSound} handleCopy={handleCopy} />
