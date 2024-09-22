@@ -27,7 +27,7 @@ export const ResultSection = ({
 }: ResultSectionProps) => {
   const [activeList, setActiveList] = useState(false);
 
-  const handleLanguage = (lang) => {
+  const handleLanguage = (lang: LanguageOption) => {
     setActiveList(false);
 
     if (lang.id === languageOption[0].id || lang.id === languageOption[1].id) {

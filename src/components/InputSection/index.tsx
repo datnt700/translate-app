@@ -14,7 +14,7 @@ interface LanguageOption {
 }
 interface inputSectionProps {
   text: string;
-  setText: (e) => void;
+  setText: (e: string) => void;
   handleTranslate: () => void;
   languageOption: LanguageOption[];
   setLanguageOption: (options: LanguageOption[]) => void;
@@ -34,7 +34,7 @@ export const InputSection = ({
     setText(newText);
     setCount(newText.length);
   };
-  const handleLanguage = (lang) => {
+  const handleLanguage = (lang: LanguageOption) => {
     setActiveList(false);
 
     if (lang.id === languageOption[0].id || lang.id === languageOption[1].id) {
