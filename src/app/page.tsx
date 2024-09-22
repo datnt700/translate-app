@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
 
 import styles from './home.module.scss';
 
