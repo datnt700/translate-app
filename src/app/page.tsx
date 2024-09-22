@@ -1,11 +1,10 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import axios from 'axios';
 
 import styles from './home.module.scss';
 
-import { handleTranslate } from '@/app/api/handletranslate';
 import { InputSection } from '@/components/InputSection';
 import { ResultSection } from '@/components/ResultSection';
 
