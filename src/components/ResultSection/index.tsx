@@ -84,8 +84,7 @@ export const ResultSection = ({
           </ul>
 
           <div className={styles.list}>
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-            <div className={styles.selected} onClick={handleList}>
+            <button className={styles.selected} onClick={handleList}>
               <span className={styles.btn}>
                 Select More
                 {activeList ? (
@@ -94,7 +93,7 @@ export const ResultSection = ({
                   <Icon icon="solar:alt-arrow-up-linear" />
                 )}
               </span>
-            </div>
+            </button>
             <div
               className={
                 activeList ? `${styles.menu} ${styles.activeList}` : styles.menu
@@ -124,9 +123,7 @@ export const ResultSection = ({
       </div>
       <div className={styles.line}></div>
       <div className={styles['input-text']}>
-        <textarea className={styles.area} value={textResult}>
-          {textResult}
-        </textarea>
+        <textarea className={styles.area} defaultValue={textResult}></textarea>
       </div>
       <div className={styles.features}>
         <FeatureSection handleSound={handleSound} handleCopy={handleCopy} />

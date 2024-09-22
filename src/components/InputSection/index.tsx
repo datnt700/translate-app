@@ -94,13 +94,7 @@ export const InputSection = ({
           </ul>
 
           <div className={styles.list}>
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-            <div
-              className={styles.selected}
-              onClick={handleList}
-              role="button"
-              tabIndex={0}
-            >
+            <button className={styles.selected} onClick={handleList}>
               <span className={styles.btn}>
                 Select More
                 {activeList ? (
@@ -109,7 +103,7 @@ export const InputSection = ({
                   <Icon icon="solar:alt-arrow-up-linear" />
                 )}
               </span>
-            </div>
+            </button>
             {activeList && (
               <div className={`${styles.menu} ${styles.activeList}`}>
                 <ul>
@@ -131,8 +125,7 @@ export const InputSection = ({
         <textarea
           className={styles.area}
           onChange={handleChange}
-          value={text}
-          maxLength={500}
+          defaultValue={text}
         ></textarea>
         <span className={styles.count}>{count}/500</span>
       </div>

@@ -1,9 +1,11 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
+import axios from 'axios';
 
 import styles from './home.module.scss';
 
+import { handleTranslate } from '@/app/api/handletranslate';
 import { InputSection } from '@/components/InputSection';
 import { ResultSection } from '@/components/ResultSection';
 
@@ -42,16 +44,16 @@ export default function Home() {
     const resultLanguage = secondLanguage.find((item) => item.active)?.id;
     const languages = `${translateLanguage}|${resultLanguage}`;
 
+    const payload = { languages, text };
     try {
-      const response = await fetch(
-        `https://api.mymemory.translated.net?langpair=${languages}&q=${text}`
+      const response = await axios.post('/api/handletranslate', payload);
+      const newText = response.data.responseData.translatedText.replace(
+        /"/g,
+        ''
       );
-      const result = await response.json();
-      const newText = result.responseData.translatedText.replace(/"/g, '');
-
       setTextResult(newText);
     } catch (error) {
-      console.error('Error translating text:', error);
+      console.error('Error:', error);
     }
   };
 
