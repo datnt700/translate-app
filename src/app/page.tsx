@@ -78,6 +78,7 @@ export default function Home() {
           className={styles.logo}
         />
       </div>
+
       <div className={styles.content}>
         <InputSection
           text={text}
