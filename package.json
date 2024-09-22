@@ -55,7 +55,7 @@
     "commit-msg": "pnpm exec commitlint -e \"$@\""
   },
   "engines": {
-    "pnpm": "^9.10.0",
+    "pnpm": "^9.4.0",
     "node": ">=20.0.0"
   }
 }
